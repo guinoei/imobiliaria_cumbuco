@@ -1,5 +1,4 @@
 from pathlib import Path
-from dotenv import load_dotenv
 import os
 
 
@@ -75,7 +74,6 @@ WSGI_APPLICATION = 'imobsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-load_dotenv()
 
 DATABASES = {
     'default': {
@@ -83,7 +81,7 @@ DATABASES = {
         'NAME': 'railway',
         'USER' : 'postgres',
         'HOST' : 'roundhouse.proxy.rlwy.net',
-        'PASSWORD' : os.getenv('PGPASSWORD'),
+        'PASSWORD' : 'DYMZGWqSDKNlMwwOkzJYEqIjIcvNchDw',
         'PORT' : '15792',
     }
 }
