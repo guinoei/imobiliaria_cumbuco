@@ -21,8 +21,10 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '52.33.18.25',
+    '52.33.18.25',    
 ]
+
+PORT = 80
 
 # Application definition
 
