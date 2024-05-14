@@ -3,7 +3,6 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.template import loader
 from .models import Propriedade
-from django.conf import settings
 
 
 def home(request):
@@ -30,18 +29,6 @@ def home(request):
         'queryset': qs
     }
     return render(request, 'home.html', context)
-
-
-# def propriedade_detalhe(request, slug):
-#     propriedade = Propriedade.objects.get(slug=slug)
-#     # propriedade_detalhe = Propriedade.objects.get()
-#     template = loader.get_template('propriedade_detalhe.html')
-#     enderecos = list(Propriedade.objects.values('lat', 'lng', 'slug')) 
-#     context = {
-#         'propriedade_detalhe': propriedade,
-#         'enderecos': enderecos,
-#         }
-#     return HttpResponse(template.render(context, request))
 
 
 def propriedade_detalhe(request, slug):
