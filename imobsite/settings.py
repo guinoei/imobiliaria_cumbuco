@@ -24,6 +24,7 @@ ALLOWED_HOSTS = [
     '.vercel.app',
     '.awsapprunner.com',
     '54.200.188.243',
+    '54.200.188.243:8000',
 ]
 
 # Application definition
@@ -150,15 +151,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
 
 CSRF_TRUSTED_ORIGINS = [
-
+    'http://54.200.188.243:8000/'
 ]
-
-CSRF_COOKIE_SECURE = True
-
-SESSION_COOKIE_SECURE = True
-
-SECURE_HSTS_SECONDS = 31536000
-
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
-SECURE_HSTS_PRELOAD = True
