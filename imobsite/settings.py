@@ -23,7 +23,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '.vercel.app',
     '.awsapprunner.com',
-    '54.200.188.243:8000',
+    '54.200.188.243',
 ]
 
 PORT = 8000
@@ -152,7 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://54.200.188.243:8000/'    
+    'https://54.200.188.243/'    
 ]
 
 CSRF_COOKIE_SECURE = True
