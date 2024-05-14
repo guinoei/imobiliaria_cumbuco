@@ -1,2 +1,2 @@
 #!/bin/bash
-python manage.py collectstatic && gunicorn --workers 2 imobsite.wsgi
+python3 manage.py collectstatic && gunicorn --workers 2 imobsite.wsgi
