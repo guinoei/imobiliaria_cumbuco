@@ -18,7 +18,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '.vercel.app',    
+    '.vercel.app',
 ]
 
 
@@ -148,8 +148,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
 
 CSRF_TRUSTED_ORIGINS = [
-    
-   
+    'https://imobiliaria-cumbuco.vercel.app',
+
 ]
 
 CSRF_COOKIE_SECURE = True
