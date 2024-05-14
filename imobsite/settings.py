@@ -44,8 +44,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',    
 ]
 
 ROOT_URLCONF = 'imobsite.urls'
@@ -129,15 +128,10 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
     ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },  
-      "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },  
+    },   
 }
 
 # Default primary key field type
@@ -147,8 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://imobiliaria-cumbuco.vercel.app',
+CSRF_TRUSTED_ORIGINS = [    
 
 ]
 
