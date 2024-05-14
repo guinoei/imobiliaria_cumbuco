@@ -21,10 +21,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '.vercel.app',
-    '.awsapprunner.com',
-    '54.200.188.243',
-    'b7e5-2800-200-e528-2a7-8805-5361-31dc-4eb4.ngrok-free.app',
+    '35.88.140.209',
 ]
 
 # Application definition
