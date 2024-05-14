@@ -152,7 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
 
 CSRF_TRUSTED_ORIGINS = [
-    
+    'http://54.200.188.243:8000/'    
 ]
 
 CSRF_COOKIE_SECURE = True
