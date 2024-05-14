@@ -23,7 +23,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '.vercel.app',
     '.awsapprunner.com',
-    'ec2-54-200-188-243.us-west-2.compute.amazonaws.com',
+    '54.200.188.243',
 ]
 
 # Application definition
