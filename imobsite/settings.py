@@ -19,7 +19,6 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     '.vercel.app',
-    '3f38-2800-200-e528-2a7-600d-cea9-d0ca-f38d.ngrok-free.app'
 ]
 
 
@@ -136,8 +135,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
 
-CSRF_TRUSTED_ORIGINS = [  
-    'https://3f38-2800-200-e528-2a7-600d-cea9-d0ca-f38d.ngrok-free.app'
+CSRF_TRUSTED_ORIGINS = [
+
 ]
 
 CSRF_COOKIE_SECURE = True
