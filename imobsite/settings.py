@@ -22,7 +22,7 @@ ALLOWED_HOSTS = [
     '.awsapprunner.com',    
 ]
 
-PORT = 8080
+PORT = 8000
 
 # Application definition
 
@@ -127,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STORAGES = {
     "default": {
