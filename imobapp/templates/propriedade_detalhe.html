@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!-- propriedade titulo -->
+<div class="mobiletitle" style="display: flex; width: 960px; margin: 30px 30px;">
+  <h2 class="fs-3 propriedade-titulo" style="text-align: start;">{{ propriedade_detalhe.tipo }} com {{ propriedade_detalhe.quartos }} Quarto{{ propriedade_detalhe.quartos|pluralize:"s" }}{% if propriedade_detalhe.suites %}, {{ propriedade_detalhe.suites }} Suíte{{ propriedade_detalhe.suites|pluralize:"s" }}{% endif %} e {{ propriedade_detalhe.banheiros }} Banheiro{{ propriedade_detalhe.banheiros|pluralize:"s" }} - {{ propriedade_detalhe.estado }} - {{ propriedade_detalhe.cidade }} - {{ propriedade_detalhe.bairro }}</h2>
+</div>
+
+<!-- propriedade especificacao -->
+<div class="gap-2 mobileback" style="display: flex; width: 960px; margin: 30px 30px;">
+  <a class="propriedade_voltar" href="{% url 'home' %}" style="
+    text-decoration: none;
+    color: whitesmoke;">Voltar</a>  
+  <p class="fst-italic user-select-none especificacao">> {{ propriedade_detalhe.finalidade }} > {{ propriedade_detalhe.tipo }} > {{ propriedade_detalhe.estado }} > {{ propriedade_detalhe.cidade }} > {{ propriedade_detalhe.bairro }} ><i style="color: grey;"> {{ propriedade_detalhe.titulo }}</i></p>
+  </div>
+
+<!-- carossel -->
+<div class="col-md-6 offset-md-3 user-select-none" style="margin-bottom: 30px; box-shadow: 10px 10px 0 white;">
+  <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ propriedade_detalhe.foto1.url }}" class="d-block w-100">
+      </div>
+      {% if propriedade_detalhe.foto2 %}
+      <div class="carousel-item">
+        <img src="{{ propriedade_detalhe.foto2.url }}" class="d-block w-100">
+      </div>
+      {% endif %}
+      {% if propriedade_detalhe.foto3 %}
+      <div class="carousel-item">
+        <img src="{{ propriedade_detalhe.foto3.url }}" class="d-block w-100">
+      </div>
+      {% endif %}
+      {% if propriedade_detalhe.foto4 %}
+      <div class="carousel-item">
+        <img src="{{ propriedade_detalhe.foto4.url }}" class="d-block w-100">
+      </div>
+      {% endif %}
+      {% if propriedade_detalhe.foto5 %}
+      <div class="carousel-item">
+        <img src="{{ propriedade_detalhe.foto5.url }}" class="d-block w-100">
+      </div>
+      {% endif %}
+      {% if propriedade_detalhe.foto6 %}
+      <div class="carousel-item">
+        <img src="{{ propriedade_detalhe.foto6.url }}" class="d-block w-100">
+      </div>
+      {% endif %}
+      {% if propriedade_detalhe.foto7 %}
+      <div class="carousel-item">
+        <img src="{{ propriedade_detalhe.foto7.url }}" class="d-block w-100">
+      </div>
+      {% endif %}
+      {% if propriedade_detalhe.foto8 %}
+      <div class="carousel-item">
+        <img src="{{ propriedade_detalhe.foto8.url }}" class="d-block w-100">
+      </div>
+      {% endif %}
+      {% if propriedade_detalhe.foto9 %}
+      <div class="carousel-item">
+        <img src="{{ propriedade_detalhe.foto9.url }}" class="d-block w-100">
+      </div>
+      {% endif %}
+      {% if propriedade_detalhe.foto10 %}
+      <div class="carousel-item">
+        <img src="{{ propriedade_detalhe.foto10.url }}" class="d-block w-100">
+      </div>
+      {% endif %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+</div>
+
+<!-- propriedade detalhes -->
+<div class="gap-5" style="display: flex; flex-direction: column; align-items: center; flex-wrap: wrap;">
+  <div class="gap-4 propriedade-detalhes" style="display: flex; justify-content: center; flex-wrap: wrap;">
+    <p class="fs-6" ><i class="fa fa-ruler" ></i> {{ propriedade_detalhe.area_util }}m² de Área Útil</p>
+    {% if propriedade_detalhe.area_total %}
+    <p class="fs-6" ><i class="fa fa-ruler" ></i> {{ propriedade_detalhe.area_total }}m² de Área Total</p>
+    {% endif %}
+    <p class="fs-6" ><i class="fa fa-bed" ></i> {{ propriedade_detalhe.quartos }} Quarto{{ propriedade_detalhe.quartos|pluralize:"s" }}</p>
+    {% if propriedade_detalhe.suites %}
+    <p class="fs-6" ><i class="fa fa-bed" ></i> {{ propriedade_detalhe.suites }} Suíte{{ propriedade_detalhe.suites|pluralize:"s" }}</p>
+    {% endif %}
+    <p class="fs-6" ><i class="fa fa-toilet" ></i> {{ propriedade_detalhe.banheiros }} Banheiro{{ propriedade_detalhe.banheiros|pluralize:"s" }}</p>    
+    {% if propriedade_detalhe.vagas %}
+    <p class="fs-6" ><i class="fa fa-car" ></i> {{ propriedade_detalhe.vagas }} Vaga{{ propriedade_detalhe.vagas|pluralize:"s" }}</p>
+    {% endif %}
+  </div> 
+
+  <!-- propriedade descricao -->
+  <div class="mobiledescbox" style="display: flex; width: 960px; height: fit-content; align-items: center; justify-content: space-between;">
+    <div class="mobiledesc"><h5 style="margin-bottom: 0;">Descrição do imóvel:</h5>
+      <p>{{ propriedade_detalhe.descricao|linebreaks }}</p>
+    </div>
+    <div class="rounded-5 mobilebox" style="background-color: rgb(37, 37, 37); padding: 0 30px; display: flex; flex-direction: column; justify-content: center; width: 350px; height: 200px; box-shadow: 1px 1px 2px black;">
+      <div style="display: flex; justify-content: center; align-items: center;">
+      <p class="fs-4">{{ propriedade_detalhe.finalidade }}: {{ propriedade_detalhe.preco }}</p>      
+    </div>
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <a class="btn btn-success fs-4" style="margin-bottom: 0;" href="https://wa.me/5585991067205" target="_blank"><i class="fa fa-whatsapp" ></i> Entre em Contato!</a>    
+      </div>
+    </div>
+  </div> 
+
+  <!-- propriedade caracteristicas -->
+  <div class="mobilegrid user-select-none gap-2" style="display: flex; justify-content: space-evenly; margin-bottom: 20px;">
+    {% if propriedade_detalhe.piscina or propriedade_detalhe.churrasqueira or propriedade_detalhe.deck or propriedade_detalhe.academia or propriedade_detalhe.quadra %}
+    <h5>Características:</h5>
+    {% endif %}
+    {% if propriedade_detalhe.piscina %}
+    <p>Piscina</p>
+    {% endif %}
+    {% if propriedade_detalhe.churrasqueira %}
+    <p>Churrasqueira</p>
+    {% endif %}
+    {% if propriedade_detalhe.deck %}
+    <p>Deck</p>
+    {% endif %}
+    {% if propriedade_detalhe.academia %}
+    <p>Academia</p>
+    {% endif %}
+    {% if propriedade_detalhe.quadra %}
+    <p>Quadra</p>
+    {% endif %}
+  </div>
+</div>
+
+<!-- propriedade galeria de fotos -->
+<div class="container-fluid text-center galeria-de-fotos">
+  <h5>Galeria de Fotos:</h5>
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto1.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% if propriedade_detalhe.foto2 %}  
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto2.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% endif %}
+  {% if propriedade_detalhe.foto3 %}
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto3.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% endif %}
+  {% if propriedade_detalhe.foto4 %}
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto4.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% endif %}
+  {% if propriedade_detalhe.foto5 %}
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto5.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% endif %}
+  {% if propriedade_detalhe.foto6 %}
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto6.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% endif %}
+  {% if propriedade_detalhe.foto7 %}
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto7.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% endif %}
+  {% if propriedade_detalhe.foto8 %}
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto8.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% endif %}
+  {% if propriedade_detalhe.foto9 %}
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto9.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% endif %}
+  {% if propriedade_detalhe.foto10 %}
+  <img class="user-select-none galeria" src="{{ propriedade_detalhe.foto10.url }}" style="width: 250px; height: 250px; transition: .2s ease; margin: 15px 15px; border-radius: 10px; object-fit: cover;">  
+  {% endif %}
+</div>
+
+<!-- localizacao do imóvel -->
+<div class="map_container">
+  <h5>Localização aproximada do imóvel:</h5>
+  <div id="map"></div>
+</div>
+
+{{ localizacao|json_script:"localizacao_json" }}
+
+<script>
+let localizacao = JSON.parse(document.getElementById('localizacao_json').textContent); 
+
+// Ajuste a localização do mapa para o centro do círculo
+var map = L.map('map').setView([localizacao[0], localizacao[1]], 16);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);  
+
+var circle = L.circle([localizacao[0], localizacao[1]], {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5,
+  radius: 150
+}).addTo(map);
+
+// Force o ajuste do mapa após um curto período para garantir que o Leaflet tenha tempo de renderizar completamente
+setTimeout(function() {
+  map.invalidateSize();
+}, 100);
+
+</script>
+
+<style>
+  .galeria-de-fotos{
+    margin-bottom: 50px;
+  }
+
+  .propriedade_voltar:hover{
+    color: grey !important;
+  }
+
+  .galeria:hover{
+    transform: scale(1.05);
+    transition: .2s ease;
+  }
+
+  .map_container{   
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #map{    
+    height: 300px;
+    width: 600px;
+    border-radius: 10px;    
+  }
+
+  @media only screen and (max-width:768px){
+    .mobiletitle,
+    .mobileback{
+      width: 500px !important;
+      margin: 0 !important;      
+    }
+
+    .mobilegrid{
+      flex-direction: column !important;
+      align-items: center;
+    }
+
+    .mobiledescbox{
+      width: 760px !important;
+      flex-direction: column;
+    }
+
+    .mobiledesc{
+      width: 288px !important;
+    }
+
+    .mobilebox{
+      width: 300px !important;
+      height: 180px !important;
+      margin-bottom: 20px;
+    }
+
+    .propriedade-detalhes{
+      width: 320px !important;
+    }
+
+    .especificacao{
+      display: none;
+    }
+    
+    .propriedade-titulo{
+      font-size: 15px !important;
+    }
+
+    #map{
+      width: 100%;
+    }
+
+  }
+
+  @media only screen and (max-width:425px){
+    .mobiletitle,
+    .mobileback{
+      width: 288px !important;
+      margin: 0 !important;
+    }
+
+    .mobiledescbox{
+      width: 300px !important;      
+    }
+ }
+</style>
+
+{% endblock %}

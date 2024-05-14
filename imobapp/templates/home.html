@@ -1,0 +1,347 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- logo header -->
+<div class="container-fluid bg-image rounded-5 mobileheader" style="
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 300px;
+background-color:black;">
+  <div class="mobilelogo" style="
+  display: flex; 
+  justify-content: center;
+  align-items: center;    
+  width: 960px;
+  height: 211px;
+  background-image: url(/static/media/site_header.jpg);
+  background-position: center;">
+  <div class="rounded-5 mobilepic" style="
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;  
+  /* opacity: .7; */
+  mix-blend-mode: screen;
+  background-image: url(/static/media/palm.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;"></div>
+  </div>
+</div>
+
+<!-- imóveis em destaque -->
+
+<div class="destaques-container">
+  <div>
+    <h1 class="fs-3">Confira nossos destaques!</h1>
+  </div>
+  <div class="destaques">
+    <iframe class="destaques-video1" src="https://www.youtube.com/embed/ttyaXpXVKtA" frameborder="0"></iframe>
+  </div>
+</div>
+
+<!-- search bar -->
+<div class="buscador" style="display: flex; align-items: center; justify-content: center; margin-top: 40px;">
+<form method="GET" action="#imovel" class="buscador-form" id="imovel">
+  <div class="buscar1">
+    <input class="form-control mr-sm-2 fs-5 buscar-finalidade-input" type="imovel" name="buscar_finalidade" placeholder="Venda ou Aluguel?" aria-label="Search">
+    <input class="form-control mr-sm-2 fs-5 buscar-tipo-input" type="imovel" name="buscar_tipo" placeholder="Tipo do Imóvel" aria-label="Search">
+  </div>
+  <div class="buscar1">
+    <input class="form-control mr-sm-2 fs-5 buscar-cidade-input" type="imovel" name="buscar_cidade" placeholder="Cidade" aria-label="Search">
+    <input class="form-control mr-sm-2 fs-5 buscar-bairro-input" type="imovel" name="buscar_bairro" placeholder="Bairro" aria-label="Search">
+  </div>
+  <div class="buscar1">
+    <input class="form-control mr-sm-2 fs-5 buscar-quartos-input" type="imovel" name="buscar_quartos" placeholder="Quartos" aria-label="Search">
+    <input class="form-control mr-sm-2 fs-5 buscar-banheiros-input" type="imovel" name="buscar_banheiros" placeholder="Banheiros" aria-label="Search">
+  </div>
+  <button style="width: 100%;" class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i> <strong>Buscar Imóvel</strong></button>
+</form>
+</div>
+
+<!-- propriedades grid -->
+<div class="container-fluid p-5 grid gap-3 card-imoveis" style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">  
+  {% for propriedade in queryset %}
+  <div class="row" style="margin: 0;">
+    <div class="col">     
+        <div class="card bg-black text-white carta" style="width: 18rem;" onclick="window.location = 'propriedade_detalhe/{{ propriedade.slug }}'">
+        <img src="{{ propriedade.foto1 }}" class="card-img-top" style="width: 286px; height: 286px; object-fit: cover;">          
+        <div class="card-body" style="
+        height: 330px;        
+        justify-content: space-between;
+        display: flex;
+        flex-direction: column;">
+            <p class="fw-lighter fst-italic" style="margin-bottom: 0;">{{ propriedade.tipo }}</p>
+            <h5 class="card-title">{{ propriedade.titulo }}</h5>
+            <div>
+              <p class="user-select-none" style="margin-bottom: 0;"><i class="fa fa-ruler" ></i> {{ propriedade.area_util }}m²</p>
+              <p class="user-select-none" style="margin-bottom: 0;"><i class="fa fa-bed" ></i> {{ propriedade.quartos }} Quarto{{ propriedade.quartos|pluralize:"s" }}{% if propriedade.suites %} (Sendo {{ propriedade.suites }} Suíte{{ propriedade.suites|pluralize:"s"}}){% endif %}</p>              
+              <p class="user-select-none" style="margin-bottom: 0;"><i class="fa fa-toilet" ></i> {{ propriedade.banheiros }} Banheiro{{ propriedade.banheiros|pluralize:"s" }}</p>
+              <p class="fs-6 fst-italic" style="margin-bottom: 0;">{{ propriedade.finalidade }}</p>
+              <p class="fs-4" style="margin-bottom: 0;">{{ propriedade.preco }}</p>
+            </div>
+            <div class="buttons">
+              <a class="btn btn-secondary fs-5 mais-detalhes" onclick="window.location = 'propriedade_detalhe/{{ propriedade.slug }}'">Mais Detalhes</a>
+              <a class="btn btn-success whatsapp fs-3" href="https://wa.me/5585991067205" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div>            
+          </div>
+        </div>
+    </div>    
+  </div>
+  {% empty %}
+    <div class="container-fluid" style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 50px;">
+    <i class="fa fa-triangle-exclamation fs-1"></i>
+    <h5 class="fst-italic" >Não encontramos imóveis para a sua busca...</h5>
+    </div>
+  {% endfor %}
+</div>
+
+<!-- header cumbuco -->
+<div class="container-fluid mobilecont" style="text-align: center; justify-content: center; display: flex; padding: 20px; align-items: center;">
+  <div class="container-fluid" style="width: 200px;  
+  height: 300px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/static/media/cumbuco1.gif);
+  background-position: left;
+  background-size: cover;">
+  </div>
+  <div class="mobiletext" style="display: flex; width: 500px;"><h1 class="user-select-none">Não perca tempo e escolha sua casa nesse paradisíaco litoral Cearense!</h1></div>  
+  <div class="container-fluid" style="width: 200px;
+  height: 300px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/static/media/cumbuco1.gif);
+  background-position: center;
+  background-size: cover;">
+  </div>
+</div>
+
+<!-- banner de contato -->
+<div class="container-fluid banner-contato">
+  <a href="https://wa.me/5585991067205"><img class="user-select-none banner-contato-foto" src="/static/media/bannercontato.jpg"></a>
+</div>
+
+<!-- header apartamentos -->
+<div class="container-fluid header-apartamentos" style="display: flex; gap: 100px; align-items: center; justify-content: center; margin: 30px 0;"> 
+  <img class="user-select-none banner header-vilareal" src="/static/media/vila_real.jpg" onclick="window.location = 'propriedade_detalhe/venda-apartamento-cumbuco-caucaia-100'" style="height: 600; width: 424px; border-radius: 20px;">
+  <img class="user-select-none banner header-refugio" src="/static/media/refugio-dos-ventos.jpg" onclick="window.location = 'propriedade_detalhe/venda-apartamento-cumbuco-caucaia-57'" style="height: 600px; width: 600px; border-radius: 20px">
+</div>
+
+<style>
+  .banner:hover{
+    cursor: pointer;
+    opacity: .8;
+  }
+
+  .carta:hover{
+    cursor: pointer;
+  }
+
+  .carta:hover p,
+  .carta:hover h5{
+    color: rgb(199, 199, 199);
+  }
+
+  .carta:hover img{
+    opacity: .8;
+  }
+
+  .destaques-container{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .destaques-titulo{
+    text-align: center;
+  }
+
+  .destaques{
+    display: flex;
+    align-items: center;
+    justify-content: center;          
+  }
+
+.destaques-video1{
+  width: 500px;
+  height: 280px;
+  border-radius: 20px;
+  border: solid 5px black;
+}
+
+  .buscador-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .buscar-finalidade-input,
+  .buscar-tipo-input,
+  .buscar-cidade-input,
+  .buscar-bairro-input,
+  .buscar-banheiros-input,
+  .buscar-quartos-input{
+    font-size: 15px;
+  }
+
+  .buscador-form input::placeholder{
+    font-style: italic;
+  }
+
+  .buscar1{
+    display: flex;
+    gap: 10px;
+  }
+
+  .buttons{
+    margin-top: 5px;
+    display: flex;
+    gap: 5px;
+    width: 100%;
+  }
+
+.mais-detalhes{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;  
+}
+
+.whatsapp{
+  font-size: 25px;
+}
+
+  .banner-contato{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+.banner-contato-foto{
+  width: 600px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+
+@media only screen and (max-width:1024px){  
+  .header-apartamentos{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width:768px){
+  .mobilelogo{    
+    background-image: url(/static/media/site_header.jpg) !important;
+    background-size: cover !important;
+    width: 720px !important;
+    height: 158px !important;
+  }
+
+  .mobileheader{
+    height: 200px !important;
+  }
+
+  .mobilepic{
+    height: 200px !important;
+  }
+
+  .mobilecont{
+    flex-direction: column !important;
+    gap: 15px;    
+  }
+
+  .mobiletext{
+    width: 300px !important;
+  }
+
+  .buscador{
+    margin-left: 0 !important;
+  }
+
+  .buscador-form{
+    width: 300px !important;
+  }
+
+  .buscador-input{
+    font-size: 12px !important;
+  }
+
+  .buscar-finalidade-input,
+  .buscar-tipo-input,
+  .buscar-cidade-input,
+  .buscar-bairro-input,
+  .buscar-banheiros-input,
+  .buscar-quartos-input{
+    font-size: 12px !important;
+  }
+   
+.header-refugio,
+.header-vilareal{
+  width: 600px !important;
+}
+
+.header-refugio{
+  height: 600px !important;
+}
+}
+
+@media only screen and (max-width:425px){
+  .mobilelogo{
+    background-image: url(/static/media/site_header.jpg) !important;
+    background-size: cover !important;
+    width: 320px !important;
+    height: 70px !important;
+  }
+
+  .mobileheader{
+    height: 200px !important;
+  }
+
+  .mobilepic{
+    height: 200px !important;
+  }
+  
+.destaques-video1{
+  width: 300px;
+  height: 180px;
+}
+
+.header-refugio,
+.header-vilareal{
+  width: 300px !important;
+}
+
+.banner-contato-foto{
+  height: 150px;
+  width: 300px;
+}
+
+.header-refugio{
+  height: 300px !important;
+}
+
+.card-imoveis{
+  justify-content: center !important;
+  width: 312px !important;
+}
+}
+
+</style>
+
+{% endblock %}
