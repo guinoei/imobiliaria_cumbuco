@@ -33,7 +33,7 @@ class Propriedade(models.Model):
     vagas= models.CharField(max_length=3, default="", blank=True)
     descricao= models.TextField()
     tipo= models.CharField(max_length=50, choices=tipo_select)   
-    foto1= models.ImageField(upload_to='static')
+    foto1= models.ImageField(upload_to='static', blank=True)
     foto2= models.ImageField(upload_to='static', blank=True)
     foto3= models.ImageField(upload_to='static', blank=True)
     foto4= models.ImageField(upload_to='static', blank=True)
