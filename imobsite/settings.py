@@ -21,7 +21,7 @@ ALLOWED_HOSTS = [
     '.vercel.app',
     '.awsapprunner.com'
 ]
-
+PORT = 8000
 
 # Application definition
 
