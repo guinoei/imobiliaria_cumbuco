@@ -26,8 +26,6 @@ ALLOWED_HOSTS = [
     '54.200.188.243',
 ]
 
-PORT = 8000
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -132,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "static"
 
 STORAGES = {
     "default": {
