@@ -6,7 +6,7 @@ from .models import Propriedade
 
 
 def home(request):
-    qs = Propriedade.objects.all()
+    qs = Propriedade.objects.all().order_by('-id')
     buscar_finalidade_query = request.GET.get('buscar_finalidade')
     buscar_tipo_query = request.GET.get('buscar_tipo')
     buscar_cidade_query = request.GET.get('buscar_cidade')

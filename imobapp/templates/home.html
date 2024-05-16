@@ -15,7 +15,7 @@ background-color:black;">
   align-items: center;    
   width: 960px;
   height: 211px;
-  background-image: url(/static/assets/site_header.jpg);
+  background-image: url(https://imobc-pics.s3.us-west-2.amazonaws.com/assets/site_header.jpg);
   background-position: center;">
   <div class="rounded-5 mobilepic" style="
   display: flex;
@@ -25,7 +25,7 @@ background-color:black;">
   height: 300px;  
   /* opacity: .7; */
   mix-blend-mode: screen;
-  background-image: url(/static/assets/palm.jpg);
+  background-image: url(https://imobc-pics.s3.us-west-2.amazonaws.com/assets/palm.jpg);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;"></div>
@@ -34,9 +34,10 @@ background-color:black;">
 
 <!-- imóveis em destaque -->
 
-<div class="destaques-container">
-  <div>
+<div class="destaques-container user-select-none">
+  <div class="destaques-titulo">
     <h1 class="fs-3">Confira nossos destaques!</h1>
+    <p onclick="window.location = 'propriedade_detalhe/aluguel-apartamento-cumbuco-caucaia-100'">Condomínio Vila Real - Apartamentos para venda ou aluguel!</p>
   </div>
   <div class="destaques">
     <iframe class="destaques-video1" src="https://www.youtube.com/embed/ttyaXpXVKtA" frameborder="0"></iframe>
@@ -68,7 +69,7 @@ background-color:black;">
   <div class="row" style="margin: 0;">
     <div class="col">     
         <div class="card bg-black text-white carta" style="width: 18rem;" onclick="window.location = 'propriedade_detalhe/{{ propriedade.slug }}'">
-        <img src="{{ propriedade.foto1 }}" class="card-img-top" style="width: 286px; height: 286px; object-fit: cover;">          
+        <img src="https://imobc-pics.s3.amazonaws.com/{{ propriedade.foto1 }}" class="card-img-top" style="width: 286px; height: 286px; object-fit: cover;">          
         <div class="card-body" style="
         height: 330px;        
         justify-content: space-between;
@@ -107,7 +108,7 @@ background-color:black;">
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/static/assets/cumbuco1.gif);
+  background-image: url(https://imobc-pics.s3.us-west-2.amazonaws.com/assets/cumbuco1.gif);
   background-position: left;
   background-size: cover;">
   </div>
@@ -118,7 +119,7 @@ background-color:black;">
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(/static/assets/cumbuco1.gif);
+  background-image: url(https://imobc-pics.s3.us-west-2.amazonaws.com/assets/cumbuco1.gif);
   background-position: center;
   background-size: cover;">
   </div>
@@ -126,13 +127,13 @@ background-color:black;">
 
 <!-- banner de contato -->
 <div class="container-fluid banner-contato">
-  <a href="https://wa.me/5585991067205"><img class="user-select-none banner-contato-foto" src="/static/assets/bannercontato.jpg"></a>
+  <a href="https://wa.me/5585991067205"><img class="user-select-none banner-contato-foto" src="https://imobc-pics.s3.us-west-2.amazonaws.com/assets/bannercontato.jpg"></a>
 </div>
 
 <!-- header apartamentos -->
 <div class="container-fluid header-apartamentos" style="display: flex; gap: 100px; align-items: center; justify-content: center; margin: 30px 0;"> 
-  <img class="user-select-none banner header-vilareal" src="/static/assets/vila_real.jpg" onclick="window.location = 'propriedade_detalhe/venda-apartamento-cumbuco-caucaia-100'" style="height: 600; width: 424px; border-radius: 20px;">
-  <img class="user-select-none banner header-refugio" src="/static/assets/refugio-dos-ventos.jpg" onclick="window.location = 'propriedade_detalhe/venda-apartamento-cumbuco-caucaia-57'" style="height: 600px; width: 600px; border-radius: 20px">
+  <img class="user-select-none banner header-vilareal" src="https://imobc-pics.s3.us-west-2.amazonaws.com/assets/vila_real.jpg" onclick="window.location = 'propriedade_detalhe/venda-apartamento-cumbuco-caucaia-100'" style="height: 600; width: 424px; border-radius: 20px;">
+  <img class="user-select-none banner header-refugio" src="https://imobc-pics.s3.us-west-2.amazonaws.com/assets/refugio-dos-ventos.jpg" onclick="window.location = 'propriedade_detalhe/venda-apartamento-cumbuco-caucaia-57'" style="height: 600px; width: 600px; border-radius: 20px">
 </div>
 
 <style>
@@ -163,9 +164,22 @@ background-color:black;">
     justify-content: center;
   }
 
-  .destaques-titulo{
-    text-align: center;
-  }
+    .destaques-titulo{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .destaques-titulo p {
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    .destaques-titulo p:hover{
+      color: rgb(194, 194, 194);
+      cursor: pointer;
+    }
 
   .destaques{
     display: flex;

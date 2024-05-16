@@ -24,6 +24,11 @@ ALLOWED_HOSTS = [
        
 ]
 
+AWS_ACCESS_KEY_ID = 'AKIA5FTZFOHM3YH7JE4G'
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+
+AWS_STORAGE_BUCKET_NAME = 'imobc-pics'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 # Application definition
 
@@ -34,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'imobapp',   
+    'imobapp',
     'djmoney',
-    'leaflet',    
+    'leaflet',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -46,8 +52,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',    
 ]
 
 ROOT_URLCONF = 'imobsite.urls'
@@ -126,16 +131,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-
-STATIC_ROOT = BASE_DIR / "static"
-
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
     },
 }
 

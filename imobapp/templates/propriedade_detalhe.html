@@ -168,6 +168,14 @@
   {% endif %}
 </div>
 
+<!-- videos do imovel  -->
+{% if propriedade_detalhe.video %}
+<div class="video-container">
+  <h5>Vídeo:</h5>
+  <iframe class="video-frame" src="{{ propriedade_detalhe.video }}" frameborder="0"></iframe>
+</div>
+{% endif %}
+
 <!-- localizacao do imóvel -->
 <div class="map_container">
   <h5>Localização aproximada do imóvel:</h5>
@@ -213,6 +221,25 @@ setTimeout(function() {
   .galeria:hover{
     transform: scale(1.05);
     transition: .2s ease;
+  }
+
+  .video-container{
+    height: 300px;
+    width: 100%;
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    margin-bottom: 50px;
+    gap: 5px;
+  }
+
+  .video-frame{
+    width: 300px;
+    height: 533px;
+    border-radius: 20px;
+
   }
 
   .map_container{   
