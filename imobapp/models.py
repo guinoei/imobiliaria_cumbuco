@@ -1,12 +1,6 @@
 from django.db import models
 from djmoney.models.fields import MoneyField
-import string
-import random
 
-def gerar_codigo(tipo):
-    codigo_prefixo = tipo[:2].upper()
-    codigo_aleatorio = ''.join(random.choice(string.digits) for _ in range(4))
-    return f"{codigo_prefixo}{codigo_aleatorio}"
 
 class Propriedade(models.Model):
     finalidade_select = (
@@ -55,12 +49,6 @@ class Propriedade(models.Model):
     estado= models.CharField(max_length=50)
     slug= models.SlugField(default="", null=False)
     lat= models.DecimalField(max_digits=25, decimal_places=20, null=True, blank=True)
-    lng= models.DecimalField(max_digits=25, decimal_places=20, null=True, blank=True)
-    codigo = models.CharField(max_length=6, unique=True, blank=True, null=True)    
+    lng= models.DecimalField(max_digits=25, decimal_places=20, null=True, blank=True)    
     def __str__(self):
-        return self.titulo
-    
-    def save(self, *args, **kwargs):
-        if not self.codigo:
-            self.codigo = gerar_codigo(self.tipo.__class__.__name__)
-        super().save(*args, **kwargs)
+        return self.titulo   

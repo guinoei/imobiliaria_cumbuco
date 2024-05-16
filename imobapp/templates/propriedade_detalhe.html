@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <!-- propriedade titulo -->
 <div class="mobiletitle" style="display: flex; width: 960px; margin: 30px 30px;">
   <h2 class="fs-3 propriedade-titulo" style="text-align: start;">{{ propriedade_detalhe.tipo }} com {{ propriedade_detalhe.quartos }} Quarto{{ propriedade_detalhe.quartos|pluralize:"s" }}{% if propriedade_detalhe.suites %}, {{ propriedade_detalhe.suites }} Suíte{{ propriedade_detalhe.suites|pluralize:"s" }}{% endif %} e {{ propriedade_detalhe.banheiros }} Banheiro{{ propriedade_detalhe.banheiros|pluralize:"s" }} - {{ propriedade_detalhe.estado }} - {{ propriedade_detalhe.cidade }} - {{ propriedade_detalhe.bairro }}</h2>
@@ -316,5 +315,4 @@ setTimeout(function() {
     }
  }
 </style>
-
 {% endblock %}
