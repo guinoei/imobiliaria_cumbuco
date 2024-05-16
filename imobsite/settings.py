@@ -20,11 +20,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'localhost',
-    '52.33.18.25',    
+    '.vercel.app',
+       
 ]
 
-PORT = 80
 
 # Application definition
 
@@ -35,8 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'imobapp',
-    'imobsite',
+    'imobapp',   
     'djmoney',
     'leaflet',    
 ]
