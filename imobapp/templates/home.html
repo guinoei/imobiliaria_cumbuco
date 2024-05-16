@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+<head><link rel="stylesheet" href="/static/styles/home.css"></head>
+
 {% block content %}
 <!-- logo header -->
 <div class="container-fluid bg-image rounded-5 mobileheader" style="
@@ -137,226 +139,225 @@ background-color:black;">
 </div>
 
 <style>
-  .banner:hover{
+  .banner:hover {
     cursor: pointer;
     opacity: .8;
-  }
+}
 
-  .carta:hover{
+.carta:hover {
     cursor: pointer;
-  }
+}
 
-  .carta:hover p,
-  .carta:hover h5{
+.carta:hover p,
+.carta:hover h5 {
     color: rgb(199, 199, 199);
-  }
+}
 
-  .carta:hover img{
+.carta:hover img {
     opacity: .8;
-  }
+}
 
-  .destaques-container{
+.destaques-container {
     margin-top: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-    .destaques-titulo{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .destaques-titulo p {
-      font-style: italic;
-      text-decoration: underline;
-      text-align: center;
-    }
-
-    .destaques-titulo p:hover{
-      color: rgb(194, 194, 194);
-      cursor: pointer;
-    }
-
-  .destaques{
-    display: flex;
-    align-items: center;
-    justify-content: center;          
-  }
-
-.destaques-video1{
-  width: 500px;
-  height: 280px;
-  border-radius: 20px;
-  border: solid 5px black;
 }
 
-  .buscador-form{
+.destaques-titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.destaques-titulo p {
+    font-style: italic;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.destaques-titulo p:hover {
+    color: rgb(194, 194, 194);
+    cursor: pointer;
+}
+
+.destaques {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.destaques-video1 {
+    width: 500px;
+    height: 280px;
+    border-radius: 20px;
+    border: solid 5px black;
+}
+
+.buscador-form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: column;
     gap: 10px;
-  }
+}
 
-  .buscar-finalidade-input,
-  .buscar-tipo-input,
-  .buscar-cidade-input,
-  .buscar-bairro-input,
-  .buscar-banheiros-input,
-  .buscar-quartos-input{
+.buscar-finalidade-input,
+.buscar-tipo-input,
+.buscar-cidade-input,
+.buscar-bairro-input,
+.buscar-banheiros-input,
+.buscar-quartos-input {
     font-size: 15px;
-  }
+}
 
-  .buscador-form input::placeholder{
+.buscador-form input::placeholder {
     font-style: italic;
-  }
+}
 
-  .buscar1{
+.buscar1 {
     display: flex;
     gap: 10px;
-  }
+}
 
-  .buttons{
+.buttons {
     margin-top: 5px;
     display: flex;
     gap: 5px;
     width: 100%;
-  }
-
-.mais-detalhes{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;  
 }
 
-.whatsapp{
-  font-size: 25px;
+.mais-detalhes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
 
-  .banner-contato{
+.whatsapp {
+    font-size: 25px;
+}
+
+.banner-contato {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-  }
+}
 
-.banner-contato-foto{
-  width: 600px;
-  height: 300px;
-  border-radius: 10px;
+.banner-contato-foto {
+    width: 600px;
+    height: 300px;
+    border-radius: 10px;
 }
 
 
-@media only screen and (max-width:1024px){  
-  .header-apartamentos{
-    flex-direction: column;
-  }
+@media only screen and (max-width:1024px) {
+    .header-apartamentos {
+        flex-direction: column;
+    }
 }
 
-@media only screen and (max-width:768px){
-  .mobilelogo{    
-    background-image: url(/static/media/site_header.jpg) !important;
-    background-size: cover !important;
-    width: 720px !important;
-    height: 158px !important;
-  }
+@media only screen and (max-width:768px) {
+    .mobilelogo {
+        background-image: url(/static/media/site_header.jpg) !important;
+        background-size: cover !important;
+        width: 720px !important;
+        height: 158px !important;
+    }
 
-  .mobileheader{
-    height: 200px !important;
-  }
+    .mobileheader {
+        height: 200px !important;
+    }
 
-  .mobilepic{
-    height: 200px !important;
-  }
+    .mobilepic {
+        height: 200px !important;
+    }
 
-  .mobilecont{
-    flex-direction: column !important;
-    gap: 15px;    
-  }
+    .mobilecont {
+        flex-direction: column !important;
+        gap: 15px;
+    }
 
-  .mobiletext{
-    width: 300px !important;
-  }
+    .mobiletext {
+        width: 300px !important;
+    }
 
-  .buscador{
-    margin-left: 0 !important;
-  }
+    .buscador {
+        margin-left: 0 !important;
+    }
 
-  .buscador-form{
-    width: 300px !important;
-  }
+    .buscador-form {
+        width: 300px !important;
+    }
 
-  .buscador-input{
-    font-size: 12px !important;
-  }
+    .buscador-input {
+        font-size: 12px !important;
+    }
 
-  .buscar-finalidade-input,
-  .buscar-tipo-input,
-  .buscar-cidade-input,
-  .buscar-bairro-input,
-  .buscar-banheiros-input,
-  .buscar-quartos-input{
-    font-size: 12px !important;
-  }
-   
-.header-refugio,
-.header-vilareal{
-  width: 600px !important;
+    .buscar-finalidade-input,
+    .buscar-tipo-input,
+    .buscar-cidade-input,
+    .buscar-bairro-input,
+    .buscar-banheiros-input,
+    .buscar-quartos-input {
+        font-size: 12px !important;
+    }
+
+    .header-refugio,
+    .header-vilareal {
+        width: 600px !important;
+    }
+
+    .header-refugio {
+        height: 600px !important;
+    }
 }
 
-.header-refugio{
-  height: 600px !important;
-}
-}
+@media only screen and (max-width:425px) {
+    .mobilelogo {
+        background-image: url(/static/media/site_header.jpg) !important;
+        background-size: cover !important;
+        width: 320px !important;
+        height: 70px !important;
+    }
 
-@media only screen and (max-width:425px){
-  .mobilelogo{
-    background-image: url(/static/media/site_header.jpg) !important;
-    background-size: cover !important;
-    width: 320px !important;
-    height: 70px !important;
-  }
+    .mobileheader {
+        height: 200px !important;
+    }
 
-  .mobileheader{
-    height: 200px !important;
-  }
+    .mobilepic {
+        height: 200px !important;
+    }
 
-  .mobilepic{
-    height: 200px !important;
-  }
-  
-.destaques-video1{
-  width: 300px;
-  height: 180px;
+    .destaques-video1 {
+        width: 300px;
+        height: 180px;
+    }
+
+    .header-refugio,
+    .header-vilareal {
+        width: 300px !important;
+    }
+
+    .banner-contato-foto {
+        height: 150px;
+        width: 300px;
+    }
+
+    .header-refugio {
+        height: 300px !important;
+    }
+
+    .card-imoveis {
+        justify-content: center !important;
+        width: 312px !important;
+    }
 }
-
-.header-refugio,
-.header-vilareal{
-  width: 300px !important;
-}
-
-.banner-contato-foto{
-  height: 150px;
-  width: 300px;
-}
-
-.header-refugio{
-  height: 300px !important;
-}
-
-.card-imoveis{
-  justify-content: center !important;
-  width: 312px !important;
-}
-}
-
 </style>
 
 {% endblock %}
