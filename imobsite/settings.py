@@ -19,6 +19,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     '.vercel.app',
+    'www.imobiliariacumbucoficial.com.br',
+    'imobiliariacumbucoficial.com.br'
 ]
 
 AWS_ACCESS_KEY_ID = 'AKIA5FTZFOHM3YH7JE4G'
