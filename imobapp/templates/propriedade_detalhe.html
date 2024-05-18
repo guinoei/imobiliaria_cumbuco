@@ -183,8 +183,6 @@
 
 {{ localizacao|json_script:"localizacao_json" }}
 
-{% compress js/css %}
-
 <script>
 let localizacao = JSON.parse(document.getElementById('localizacao_json').textContent); 
 
@@ -317,6 +315,5 @@ setTimeout(function() {
     }
  }
 </style>
-{% endcompress %}
 
 {% endblock %}
