@@ -1,7 +1,6 @@
 from django.db import models
 from djmoney.models.fields import MoneyField
 
-
 class Propriedade(models.Model):
     finalidade_select = (
         ('Venda', 'Venda'),
