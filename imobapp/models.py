@@ -13,6 +13,7 @@ class Propriedade(models.Model):
         ('Apartamento', 'Apartamento'),
         ('Cobertura', 'Cobertura'),
         ('Comercial', 'Comercial'),
+        ('Terreno', 'Terreno'),
     )
 
     titulo= models.CharField(max_length=100)
